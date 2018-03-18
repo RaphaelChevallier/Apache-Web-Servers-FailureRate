@@ -12,7 +12,7 @@ import java.util.Collections;
 import java.text.ParseException;
 
 public class ReadApacheLogs {
-	public static void main(String[] args) throws FileNotFoundException {
+	public static void main(String[] args) throws IOException {
 
 //===================================================================================================================
 // What does this program do ?
@@ -57,12 +57,20 @@ public class ReadApacheLogs {
 		// -------------------------------------- START OF MAIN PROGRAM  ------------------------
 
 		// ------ CAPTURE LOG DATA  from stdin BUT could do this from file as well
-		System.out.println("\nCopy/paste lines of logs here at once . . . . . and then CRTL+D to close the STDIN flow and let the program run . . . . . . .\n");
-		Scanner input = new Scanner(System.in);
+		String filename = "ApacheFile.rtf";
+		System.out.println("Please update the ApacheFile.rtf with your own Apache web server logs if you have other logs to search performance for");
+		//Scanner input = new Scanner(System.in);
+		
+		String input = null;
+		
+		FileReader filereader = new FileReader(filename);
+		
+		BufferedReader bufferedReader = new BufferedReader(filereader);
+		
 
 		// ----- LOOP FOR EACH LINE IN THE LOG ------------------------
-		while (input.hasNextLine()){
-			linetext = input.nextLine();
+		while ((input = bufferedReader.readLine()) != null){
+			linetext = input;
 			// ---- Extract all relevant data from each line in the Log
 			urlstring = extractRegexStringFromLine(linetext);				// --- Extract URL and Error Code string
 			url = extractURLFromRegexString(urlstring);							// --- Extract URL only
@@ -128,13 +136,13 @@ public class ReadApacheLogs {
 		// -- END OF LOOP OVER ALL LINES IN LOG ---
 		//
 		// -- TIME TO PRINT RESULTS
-		System.out.println("- - - - - - - - - - - - START PRINT RESULTS - - - - - - - - - -");
+		System.out.println("- - - - - - - - - - - - PRINT RESULTS - - - - - - - - - -");
 		// System.out.println("urlsList.size()       = " + urlsList.size()); 			// ---- DEBUG
 		// System.out.println("urlsList              = " + urlsList);							// ---- DEBUG
 		// System.out.println("urlDateList           = " + urlDateList);						// ---- DEBUG
 		// System.out.println("urlTotalCountsList    = " + urlTotalCountsList);		// ---- DEBUG
 		// System.out.println("urlErrorCountsList    = " + urlErrorCountsList);		// ---- DEBUG
-		for (int i=0; i < urlsList.size(); i++) {// while there are URLS  in the list of URLs
+		for (int i=0; i < urlsList.size() - 1; i++) {// while there are URLS  in the list of URLs
 			url = urlsList.get(i);
 			urlErrorCount = urlErrorCountsList.get(i);
 			urlTotalCount = urlTotalCountsList.get(i);
@@ -193,7 +201,7 @@ public class ReadApacheLogs {
 			datestring = m.group();
 		}
 		else {
-			System.err.println("Bad log entry NO DATE IN IT!:");
+			//System.err.println("Bad log entry NO DATE IN IT!:");
 			return "******** DONE *******";
 		}
 		datestring = datestring.substring(1, datestring.length()-1); // ---- removeing the brackets around the date
@@ -212,7 +220,7 @@ public class ReadApacheLogs {
 			dateFormatted = dformatFinal.format(date);
 		}
 		catch ( Exception ex){
-			System.out.println(ex);
+			//System.out.println(ex);
 		}
 		return dateFormatted;
 	}
@@ -226,7 +234,7 @@ public class ReadApacheLogs {
 			date = dformatFinal.parse(datestring);
 		}
 		catch ( Exception ex){
-			System.out.println(ex);
+			//System.out.println(ex);
 		}
 		return date;
 	}

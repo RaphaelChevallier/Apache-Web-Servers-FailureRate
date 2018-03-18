@@ -1,4 +1,4 @@
-# Apache-Web-Servers-FailureRate
+# Apache-Web-Servers-FailureRate UPDATED
 Reporting URL connection success rate from Apache web server logs
 
-One file to compile and run. So far it only takes written input by the user. Some lines are already commented out in the lines of code that you can use as premade server log examples. A later update will include the reading of a file as input into the program.
+One file to compile and run. It can now read from text files. Some lines are already commented out in the lines of code that are a premade server log examples which is in the ApacheFile text file. Feel free to update your own server logs with your own text file.

@@ -18,4 +18,4 @@ What did I learn from this experience:
      This sounds mondane, but it is extremely critical for data manipulation.
      This project forced me to experience with advanced DATE manipulation functions to match, analyze, compare and format          data as required by this project  (see various DATE functions)
 
-Feel free to try it with the sample log file provided!
+**Feel free to try it with the sample log file provided!**

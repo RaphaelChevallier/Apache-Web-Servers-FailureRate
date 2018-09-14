@@ -7,6 +7,7 @@ What does this program do ?
   and produce a summary report sorted by date of all unique URLs in the log with their error ratio
 
 What did I learn from this experience:
+
   1- Learned a ton about processing text data such as JSON , Text files, Log files for manipulating data.
   
   2- Learned a ton about mastering REGEX in JAVA

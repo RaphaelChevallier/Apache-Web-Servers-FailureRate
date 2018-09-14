@@ -20,7 +20,7 @@ public class ReadApacheLogs {
 // Its goal is to determine for each unique URL its error ratio
 // and produce a summary report sorted by date of all unique URLs in the log with their error ratio
 //
-// What di I learn:
+// What did I learn:
 // A lot about understanding and mastering REGEX in JAVA to extract precise text patterns from a source (see various functions)
 // A lot about understanding and mastering DATES in JAVA to understand date matching, formatting (see various functions)
 //===================================================================================================================
@@ -32,11 +32,11 @@ public class ReadApacheLogs {
 		String errorCode ="";
 		String dateString = "";
 		String convertedDate ="";
-		ArrayList<String> urlsList = new ArrayList<>();    					// ----- List of unique URLs
+		ArrayList<String> urlsList = new ArrayList<>();    	// ----- List of unique URLs
 		int urlCount =0;																						//----- number of unique URLs captured
-		ArrayList<String> urlDateList = new ArrayList<>();    			// ----- List of date strings for these URLs
+		ArrayList<String> urlDateList = new ArrayList<>();    	// ----- List of date strings for these URLs
 		Date d1, d2;
-		ArrayList<Integer> urlTotalCountsList = new ArrayList<>(); 	// ---- List of count of occurences of each URL
+		ArrayList<Integer> urlTotalCountsList = new ArrayList<>(); // ---- List of count of occurences of each URL
 		float urlTotalCount;
 		ArrayList<Integer>  urlErrorCountsList = new ArrayList<>(); // ------- List of count of error occurences of each URL
 		float urlErrorCount;
@@ -57,7 +57,7 @@ public class ReadApacheLogs {
 		// -------------------------------------- START OF MAIN PROGRAM  ------------------------
 
 		// ------ CAPTURE LOG DATA  from stdin BUT could do this from file as well
-		String filename = "ApacheFile.rtf";
+		String filename = "SampleFile_ApacheLog.txt";	//or any file you may want to try yourself
 		System.out.println("Please update the ApacheFile.rtf with your own Apache web server logs if you have other logs to search performance for");
 		//Scanner input = new Scanner(System.in);
 		
